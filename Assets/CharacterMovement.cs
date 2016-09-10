@@ -30,10 +30,13 @@ public class CharacterMovement : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + -Vector3.up*1f, -Vector2.up,.1f);
         Debug.DrawRay(transform.position + -Vector3.up*1f, Vector2.down, Color.green);
-        if(hit.collider.name != "Character" && hit.collider.tag == "Platform")
+        if (hit.collider != null)
         {
-            grounded = true;
-            //Debug.Log(hit.collider);
+            if (hit.collider.name != "Character" && hit.collider.tag == "Platform")
+            {
+                grounded = true;
+                //Debug.Log(hit.collider);
+            }
         }
 
         if(grounded)
